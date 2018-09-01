@@ -1,6 +1,5 @@
 package com.maquarie.java8.functions;
 
-import org.hamcrest.Matchers;
 import org.junit.Test;
 
 import java.util.function.BiPredicate;

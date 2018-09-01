@@ -61,6 +61,6 @@ public class FooTest {
             }
         });
 
-        Thread.sleep(100000);
+//        Thread.sleep(100000);
     }
 }
