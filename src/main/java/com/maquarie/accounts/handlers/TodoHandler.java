@@ -1,6 +1,7 @@
 package com.maquarie.accounts.handlers;
 
 import com.maquarie.accounts.commands.RetrieveCommand;
+import com.maquarie.accounts.commands.Todo;
 import com.netflix.hystrix.HystrixCommand;
 import com.netflix.hystrix.HystrixCommandGroupKey;
 import com.netflix.hystrix.HystrixCommandProperties;
@@ -10,7 +11,6 @@ import org.springframework.web.reactive.function.server.ServerResponse;
 import reactor.core.publisher.Mono;
 
 import javax.validation.constraints.NotNull;
-import java.util.Map;
 
 @Component
 public class TodoHandler {
@@ -38,8 +38,13 @@ public class TodoHandler {
 //                        .withCoreSize(3)
 //                        .withQueueSizeRejectionThreshold(1));
 
-        String baseUrl = "https://jsonplaceholder.typicode.com/todos/1";
-        return ServerResponse.ok().body(new RetrieveCommand(config, baseUrl).execute(), Map.class);
+        String baseUrl = String.format("https://jsonplaceholder.typicode.com/todos/1");
+
+
+        return new RetrieveCommand(config, baseUrl)
+                .execute()
+                .flatMap(e ->
+                        e.map(x -> ServerResponse.ok().body(Mono.just(x), Todo.class)).orElse(ServerResponse.notFound().build()));
     }
 
 }

@@ -12,11 +12,12 @@ import reactor.retry.RetryContext;
 
 import java.time.Duration;
 import java.util.Map;
+import java.util.Optional;
 import java.util.function.Predicate;
 
 import static java.util.Optional.ofNullable;
 
-public class RetrieveCommand extends HystrixCommand<Mono<Map>> {
+public class RetrieveCommand extends HystrixCommand<Mono<Optional<Todo>>> {
     private static final Logger logger = LoggerFactory.getLogger(RetrieveCommand.class);
     private static final Duration firstBackoff = Duration.ofMillis(200);
     private static final Duration maxBackoff = Duration.ofMillis(1000);
@@ -29,16 +30,15 @@ public class RetrieveCommand extends HystrixCommand<Mono<Map>> {
     }
 
     @Override
-    protected Mono<Map> run() {
-//        String requestUrl = new Random().nextBoolean() ? "https://jsonplaceholder.typicode.com/todos/1" : "https://jsonplaceholder.typicode.com/todoz/1";
+    protected Mono<Optional<Todo>> run() {
         return WebClient.create(requestUrl)
                 .get()
                 .retrieve()
                 .onStatus(onStatusPredicate(), response -> Mono.just(new FailedCallException("404 error!")))
-                .bodyToMono(Map.class)
+                .bodyToMono(Todo.class)
                 .retryWhen(whenFactory())
                 .log()
-                .onErrorReturn(ImmutableMap.of());
+                .map(Optional::ofNullable);
     }
 
     private Retry<Object> whenFactory() {
@@ -61,7 +61,7 @@ public class RetrieveCommand extends HystrixCommand<Mono<Map>> {
     }
 
     @Override
-    protected Mono<Map> getFallback() {
+    protected Mono<Optional<Todo>> getFallback() {
         logger.info("Failing back in hystrix");
         return Mono.empty();
     }
