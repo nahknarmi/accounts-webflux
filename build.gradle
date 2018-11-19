@@ -43,7 +43,7 @@ dependencies {
     compile group: 'io.projectreactor.addons', name: 'reactor-extra', version: '3.2.0.RELEASE'
 
 
-    compile "io.github.resilience4j:resilience4j-circuitbreaker:0.13.1"
+    compile "io.github.resilience4j:resilience4j-circuitbreaker:0.13.2"
     compile "io.github.resilience4j:resilience4j-ratelimiter:0.13.1"
     compile "io.github.resilience4j:resilience4j-retry:0.13.1"
     compile "io.github.resilience4j:resilience4j-bulkhead:0.13.1"
