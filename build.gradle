@@ -35,7 +35,7 @@ dependencies {
 //	compile('org.springframework.cloud:spring-cloud-starter-netflix-hystrix-dashboard')
 //	compile('org.springframework.retry:spring-retry')
 
-    compile group: 'com.netflix.hystrix', name: 'hystrix-core', version: '1.5.12'
+    compile group: 'com.netflix.hystrix', name: 'hystrix-core', version: '1.5.18'
     compile group: 'io.projectreactor.addons', name: 'reactor-adapter', version: '3.2.0.RELEASE'
 // https://mvnrepository.com/artifact/io.reactivex/rxjava
 //    compile group: 'io.reactivex.rxjava2', name: 'rxjava', version: '2.2.0'
