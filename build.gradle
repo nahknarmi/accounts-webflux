@@ -39,7 +39,7 @@ dependencies {
     compile group: 'io.projectreactor.addons', name: 'reactor-adapter', version: '3.2.0.RELEASE'
 // https://mvnrepository.com/artifact/io.reactivex/rxjava
 //    compile group: 'io.reactivex.rxjava2', name: 'rxjava', version: '2.2.0'
-    compile group: 'io.projectreactor.ipc', name: 'reactor-netty', version: '0.7.11.RELEASE'
+    compile group: 'io.projectreactor.ipc', name: 'reactor-netty', version: '0.7.12.RELEASE'
     compile group: 'io.projectreactor.addons', name: 'reactor-extra', version: '3.2.0.RELEASE'
 
 
