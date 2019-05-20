@@ -48,7 +48,7 @@ dependencies {
     compile "io.github.resilience4j:resilience4j-retry:0.13.1"
     compile "io.github.resilience4j:resilience4j-bulkhead:0.13.1"
     compile "io.github.resilience4j:resilience4j-cache:0.13.1"
-    compile "io.github.resilience4j:resilience4j-timelimiter:0.13.1"
+    compile "io.github.resilience4j:resilience4j-timelimiter:0.15.0"
 
     compile group: 'io.github.resilience4j', name: 'resilience4j-reactor', version: '0.13.1'
 
