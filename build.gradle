@@ -50,7 +50,7 @@ dependencies {
     compile "io.github.resilience4j:resilience4j-cache:0.13.1"
     compile "io.github.resilience4j:resilience4j-timelimiter:0.13.1"
 
-    compile group: 'io.github.resilience4j', name: 'resilience4j-reactor', version: '0.13.1'
+    compile group: 'io.github.resilience4j', name: 'resilience4j-reactor', version: '0.16.0'
 
 
     compile 'org.springframework.metrics:spring-metrics:0.5.1.RELEASE'
