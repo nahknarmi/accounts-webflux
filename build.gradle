@@ -45,7 +45,7 @@ dependencies {
 
     compile "io.github.resilience4j:resilience4j-circuitbreaker:0.13.1"
     compile "io.github.resilience4j:resilience4j-ratelimiter:0.13.1"
-    compile "io.github.resilience4j:resilience4j-retry:0.13.1"
+    compile "io.github.resilience4j:resilience4j-retry:0.16.0"
     compile "io.github.resilience4j:resilience4j-bulkhead:0.13.1"
     compile "io.github.resilience4j:resilience4j-cache:0.13.1"
     compile "io.github.resilience4j:resilience4j-timelimiter:0.13.1"
