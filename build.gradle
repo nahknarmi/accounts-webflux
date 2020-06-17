@@ -10,6 +10,11 @@ buildscript {
     }
 }
 
+
+plugins {
+  id "org.sonarqube" version "2.8"
+}
+
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
@@ -68,4 +73,18 @@ dependencyManagement {
     imports {
         mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
     }
+}
+
+
+//plugins {
+//  id "org.sonarqube" version "2.8"
+//}
+
+sonarqube {
+  properties {
+    property "sonar.projectKey", "nahknarmi_com.metlife.provider"
+    property "sonar.organization", "nahknarmi"
+    property "sonar.host.url", "https://sonarcloud.io"
+    property "sonar.login", "d17805b8eb4dcf1061d33851a01804824fd13d46"
+  }
 }
