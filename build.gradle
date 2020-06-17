@@ -87,5 +87,18 @@ sonarqube {
     property "sonar.organization", "nahknarmi"
     property "sonar.host.url", "https://sonarcloud.io"
     property "sonar.login", "d17805b8eb4dcf1061d33851a01804824fd13d46"
+    property "sonar.coverage.jacoco.xmlReportPaths", "build/reports/jacoco/test/jacocoTestReport.xml"
+
   }
+}
+
+
+test {
+    finalizedBy jacocoTestReport // report is always generated after tests run
+}
+jacocoTestReport {
+    dependsOn test // tests are required to run before generating the report
+    reports {
+      xml.enabled true
+    }
 }
